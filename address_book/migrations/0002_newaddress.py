@@ -5,6 +5,13 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 
+def migrate_data(apps, schema_editor):
+    Client = apps.get_model('address_book', 'Client')
+    NewAddress = apps.get_model('address_book', 'NewAddress')
+
+    for c in Client.objects.all():
+        for a in c.addresses.all():
+            NewAddress.objects.create(street_name=a.street_name, client=c)
 
 class Migration(migrations.Migration):
 
@@ -21,4 +28,5 @@ class Migration(migrations.Migration):
                 ('client', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='address_book.Client')),
             ],
         ),
+        migrations.RunPython(migrate_data, reverse_code=migrations.RunPython.noop)
     ]
