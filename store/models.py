@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Client(models.Model):
     name = models.CharField(max_length=255)
-    bought = models.IntegerField(null=True)
+    bought = models.IntegerField(null=False)
 
 class Computer(models.Model):
     brand = models.CharField(max_length=255)
