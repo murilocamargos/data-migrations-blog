@@ -7,3 +7,7 @@ class Address(models.Model):
 class Client(models.Model):
     name = models.CharField(max_length=255)
     addresses = models.ManyToManyField(Address)
+
+class NewAddress(models.Model):
+    street_name = models.CharField(max_length=255)
+    client = models.ForeignKey(Client)
