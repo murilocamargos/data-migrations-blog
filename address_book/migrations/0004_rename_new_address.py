@@ -8,7 +8,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('address_book', '0003_auto_20180306_2340'),
+        ('address_book', '0003_remove_old_address'),
     ]
 
     operations = [

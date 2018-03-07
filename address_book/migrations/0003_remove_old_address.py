@@ -8,7 +8,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('address_book', '0002_newaddress'),
+        ('address_book', '0002_newaddress_data_migration'),
     ]
 
     operations = [
